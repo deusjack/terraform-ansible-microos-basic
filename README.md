@@ -15,6 +15,7 @@ Terraform module for configuring the basics on MicroOS with Ansible
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.8 |
 | <a name="requirement_ansible"></a> [ansible](#requirement\_ansible) | >= 1, < 2 |
+| <a name="requirement_local"></a> [local](#requirement\_local) | >= 2, < 3 |
 | <a name="requirement_null"></a> [null](#requirement\_null) | >= 3, < 4 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | >= 3, < 4 |
 
@@ -22,7 +23,7 @@ Terraform module for configuring the basics on MicroOS with Ansible
 
 | Name | Version |
 |------|---------|
-| <a name="provider_random"></a> [random](#provider\_random) | 3.6.2 |
+| <a name="provider_random"></a> [random](#provider\_random) | 3.6.3 |
 
 ## Modules
 
@@ -32,6 +33,7 @@ Terraform module for configuring the basics on MicroOS with Ansible
 | <a name="module_kernel"></a> [kernel](#module\_kernel) | git@github.com:deusjack/module-zypper.git | 1.0.0 |
 | <a name="module_primary_group"></a> [primary\_group](#module\_primary\_group) | git@github.com:deusjack/module-group.git | 1.0.0 |
 | <a name="module_software"></a> [software](#module\_software) | git@github.com:deusjack/module-zypper.git | 1.0.0 |
+| <a name="module_systemd-timesyncd"></a> [systemd-timesyncd](#module\_systemd-timesyncd) | git@github.com:deusjack/module-systemd.git | 1.0.0 |
 | <a name="module_user"></a> [user](#module\_user) | git@github.com:deusjack/module-user.git | 1.0.0 |
 
 ## Resources

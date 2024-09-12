@@ -56,3 +56,11 @@ module "user" {
   is_system_user    = true
   external_triggers = module.primary_group.triggers
 }
+
+module "systemd-timesyncd" {
+  depends_on = [module.kernel]
+  source     = "git@github.com:deusjack/module-systemd.git?ref=1.0.0"
+  hostname   = var.hostname
+  unit_name  = "systemd-timesyncd"
+  unit_type  = "service"
+}
