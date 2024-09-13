@@ -33,7 +33,9 @@ Terraform module for configuring the basics on MicroOS with Ansible
 | <a name="module_kernel"></a> [kernel](#module\_kernel) | git@github.com:deusjack/module-zypper.git | 1.0.0 |
 | <a name="module_primary_group"></a> [primary\_group](#module\_primary\_group) | git@github.com:deusjack/module-group.git | 1.0.0 |
 | <a name="module_software"></a> [software](#module\_software) | git@github.com:deusjack/module-zypper.git | 1.0.0 |
-| <a name="module_systemd-timesyncd"></a> [systemd-timesyncd](#module\_systemd-timesyncd) | git@github.com:deusjack/module-systemd.git | 1.0.0 |
+| <a name="module_systemd_timesyncd"></a> [systemd\_timesyncd](#module\_systemd\_timesyncd) | git@github.com:deusjack/module-systemd.git | 1.0.0 |
+| <a name="module_timesyncd_conf"></a> [timesyncd\_conf](#module\_timesyncd\_conf) | git@github.com:deusjack/module-file.git | 1.0.0 |
+| <a name="module_timesyncd_dir"></a> [timesyncd\_dir](#module\_timesyncd\_dir) | git@github.com:deusjack/module-directory.git | 1.0.0 |
 | <a name="module_user"></a> [user](#module\_user) | git@github.com:deusjack/module-user.git | 1.0.0 |
 
 ## Resources
@@ -47,6 +49,7 @@ Terraform module for configuring the basics on MicroOS with Ansible
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_hostname"></a> [hostname](#input\_hostname) | The hostname of linux machine the directory will be created on | `string` | n/a | yes |
+| <a name="input_ntp_server"></a> [ntp\_server](#input\_ntp\_server) | The default NTP server to use | `string` | n/a | yes |
 
 ## Outputs
 

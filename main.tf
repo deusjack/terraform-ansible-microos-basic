@@ -57,8 +57,32 @@ module "user" {
   external_triggers = module.primary_group.triggers
 }
 
-module "systemd-timesyncd" {
+module "timesyncd_dir" {
   depends_on = [module.kernel]
+  source     = "git@github.com:deusjack/module-directory.git?ref=1.0.0"
+  hostname   = var.hostname
+  path       = "/etc/systemd/timesyncd.conf.d"
+  mode       = "0755"
+  secontext = {
+    type = "systemd_conf_t"
+  }
+}
+
+module "timesyncd_conf" {
+  source   = "git@github.com:deusjack/module-file.git?ref=1.0.0"
+  hostname = var.hostname
+  content = templatefile("${path.module}/ntp.conf.tftpl", {
+    NTP_SERVER = var.ntp_server
+  })
+  path = "${module.timesyncd_dir.path}/ntp.conf"
+  mode = "0644"
+  secontext = {
+    type = "systemd_conf_t"
+  }
+}
+
+module "systemd_timesyncd" {
+  depends_on = [module.timesyncd_conf]
   source     = "git@github.com:deusjack/module-systemd.git?ref=1.0.0"
   hostname   = var.hostname
   unit_name  = "systemd-timesyncd"
