@@ -1,5 +1,5 @@
 module "software" {
-  source   = "git@github.com:deusjack/module-zypper.git?ref=1.0.0"
+  source   = "git@github.com:deusjack/terraform-ansible-zypper.git?ref=1.0.0"
   hostname = var.hostname
   packages = [
     "bash-completion",
@@ -19,7 +19,7 @@ module "software" {
 
 module "kernel" {
   depends_on         = [module.software]
-  source             = "git@github.com:deusjack/module-zypper.git?ref=1.0.0"
+  source             = "git@github.com:deusjack/terraform-ansible-zypper.git?ref=1.0.0"
   hostname           = var.hostname
   packages           = ["kernel-longterm"]
   packages_uninstall = ["kernel-default"]
@@ -31,14 +31,14 @@ resource "random_id" "hostid" {
 
 module "hostname" {
   depends_on = [module.kernel]
-  source     = "git@github.com:deusjack/module-hostname.git?ref=1.0.0"
+  source     = "git@github.com:deusjack/terraform-ansible-hostname.git?ref=1.0.0"
   hostname   = var.hostname
   hostid     = random_id.hostid.hex
 }
 
 module "primary_group" {
   depends_on      = [module.kernel]
-  source          = "git@github.com:deusjack/module-group.git?ref=1.0.0"
+  source          = "git@github.com:deusjack/terraform-ansible-group.git?ref=1.0.0"
   hostname        = var.hostname
   name            = "hashicorp"
   gid             = 1000
@@ -46,7 +46,7 @@ module "primary_group" {
 }
 
 module "user" {
-  source            = "git@github.com:deusjack/module-user.git?ref=1.0.0"
+  source            = "git@github.com:deusjack/terraform-ansible-user.git?ref=1.0.0"
   hostname          = var.hostname
   name              = "hashicorp"
   uid               = 100
@@ -59,7 +59,7 @@ module "user" {
 
 module "timesyncd_dir" {
   depends_on = [module.kernel]
-  source     = "git@github.com:deusjack/module-directory.git?ref=1.0.0"
+  source     = "git@github.com:deusjack/terraform-ansible-directory.git?ref=1.0.0"
   hostname   = var.hostname
   path       = "/etc/systemd/timesyncd.conf.d"
   mode       = "0755"
@@ -69,7 +69,7 @@ module "timesyncd_dir" {
 }
 
 module "timesyncd_conf" {
-  source   = "git@github.com:deusjack/module-file.git?ref=1.0.0"
+  source   = "git@github.com:deusjack/terraform-ansible-file.git?ref=1.0.0"
   hostname = var.hostname
   content = templatefile("${path.module}/ntp.conf.tftpl", {
     NTP_SERVER = var.ntp_server
@@ -83,7 +83,7 @@ module "timesyncd_conf" {
 
 module "systemd_timesyncd" {
   depends_on = [module.timesyncd_conf]
-  source     = "git@github.com:deusjack/module-systemd.git?ref=1.0.0"
+  source     = "git@github.com:deusjack/terraform-ansible-systemd.git?ref=1.0.0"
   hostname   = var.hostname
   unit_name  = "systemd-timesyncd"
   unit_type  = "service"

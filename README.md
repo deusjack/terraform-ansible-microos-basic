@@ -1,4 +1,4 @@
-# module-microos-basic
+# terraform-ansible-microos-basic
 Terraform module for configuring the basics on MicroOS with Ansible
 
 > [!Warning]
@@ -8,7 +8,7 @@ Terraform module for configuring the basics on MicroOS with Ansible
 
 # Terraform Docs
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -29,14 +29,14 @@ Terraform module for configuring the basics on MicroOS with Ansible
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_hostname"></a> [hostname](#module\_hostname) | git@github.com:deusjack/module-hostname.git | 1.0.0 |
-| <a name="module_kernel"></a> [kernel](#module\_kernel) | git@github.com:deusjack/module-zypper.git | 1.0.0 |
-| <a name="module_primary_group"></a> [primary\_group](#module\_primary\_group) | git@github.com:deusjack/module-group.git | 1.0.0 |
-| <a name="module_software"></a> [software](#module\_software) | git@github.com:deusjack/module-zypper.git | 1.0.0 |
-| <a name="module_systemd_timesyncd"></a> [systemd\_timesyncd](#module\_systemd\_timesyncd) | git@github.com:deusjack/module-systemd.git | 1.0.0 |
-| <a name="module_timesyncd_conf"></a> [timesyncd\_conf](#module\_timesyncd\_conf) | git@github.com:deusjack/module-file.git | 1.0.0 |
-| <a name="module_timesyncd_dir"></a> [timesyncd\_dir](#module\_timesyncd\_dir) | git@github.com:deusjack/module-directory.git | 1.0.0 |
-| <a name="module_user"></a> [user](#module\_user) | git@github.com:deusjack/module-user.git | 1.0.0 |
+| <a name="module_hostname"></a> [hostname](#module\_hostname) | git@github.com:deusjack/terraform-ansible-hostname.git | 1.0.0 |
+| <a name="module_kernel"></a> [kernel](#module\_kernel) | git@github.com:deusjack/terraform-ansible-zypper.git | 1.0.0 |
+| <a name="module_primary_group"></a> [primary\_group](#module\_primary\_group) | git@github.com:deusjack/terraform-ansible-group.git | 1.0.0 |
+| <a name="module_software"></a> [software](#module\_software) | git@github.com:deusjack/terraform-ansible-zypper.git | 1.0.0 |
+| <a name="module_systemd_timesyncd"></a> [systemd\_timesyncd](#module\_systemd\_timesyncd) | git@github.com:deusjack/terraform-ansible-systemd.git | 1.0.0 |
+| <a name="module_timesyncd_conf"></a> [timesyncd\_conf](#module\_timesyncd\_conf) | git@github.com:deusjack/terraform-ansible-file.git | 1.0.0 |
+| <a name="module_timesyncd_dir"></a> [timesyncd\_dir](#module\_timesyncd\_dir) | git@github.com:deusjack/terraform-ansible-directory.git | 1.0.0 |
+| <a name="module_user"></a> [user](#module\_user) | git@github.com:deusjack/terraform-ansible-user.git | 1.0.0 |
 
 ## Resources
 
@@ -56,4 +56,4 @@ Terraform module for configuring the basics on MicroOS with Ansible
 | Name | Description |
 |------|-------------|
 | <a name="output_hashicorp_user"></a> [hashicorp\_user](#output\_hashicorp\_user) | n/a |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
