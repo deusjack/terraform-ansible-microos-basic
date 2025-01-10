@@ -13,6 +13,7 @@ module "software" {
     "nano",
     "policycoreutils-python-utils",
     "python3-rpmconf",
+    "sensors",
     "xfsprogs"
   ]
 }
